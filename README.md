@@ -80,16 +80,12 @@ What do you want to do?
 > 1
 
 You feed Horace.
+
 Stretch Tasks
 
 Pets are not robots - they usually have some sort of self-determination! When Tick is called, you might want to have your pet take a look at its needs and possibly address one. You could use a random number generator to have it do things randomly, or prioritize things based upon what need is highest. You could also make your pet uncooperative - when the user tries to feed the pet, for example, you might make the pet refuse to eat.
 
 Rather than using numbers to convey your pet's status, you could have some sort of visual representation of the pet. I.e., instead of printing hunger: 50, you could use smileys or ASCII art to show hunger when hunger >= 50.
-
-     >=<        
-,.--'  ''-.
-(  )  ',_.'
-Xx'xX      
 
 Horace looks like this: :0
 
