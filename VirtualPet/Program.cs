@@ -10,6 +10,16 @@ namespace VirtualPet
     {
         static void Main(string[] args)
         {
+            bool trueFalse = true;
+            while (trueFalse == true)
+            {
+                Chocobo choco = new Chocobo();
+
+
+
+
+                trueFalse = false;
+            }
         }
     }
 }
