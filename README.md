@@ -20,12 +20,14 @@ Required Tasks
  Tick method
  Program class
  Main method
+ 
 Stretch Tasks
 
  Give the pet the ability to take care of some of its own needs
  A visual representation of the pet
  Calling Tick in a separate thread
  Alternative interfaces
+ 
 Details
 
 Make a virtual pet program. This is your version of a Tamagotchi or DigiPet!
@@ -96,6 +98,7 @@ Horace looks like this: :0
 3. Play with Horace
 4. Put Horace to sleep
 5. Do nothing
+
 Consider exploring threads and how you could have Tick occur every second, rather than waiting for user input.
 
 Your VirtualPet class could actually be usable with a completely different interface, such as a web page or a phone app. You might want to explore how you could use it elsewhere.
