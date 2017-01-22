@@ -73,10 +73,6 @@ namespace VirtualPet
         //Constructor
         public Chocobo()
         {
-            Console.WriteLine("Thank you for using ChocoboPet2000.\n");
-            Console.WriteLine("Max out your Chocobo's Speed and Stamina then dominate the race!\n");
-            Console.WriteLine("Be careful not to make your Chocobo too hungry, bored, tired, or angry,");
-            Console.WriteLine("or terrible things will happen...");
             Console.WriteLine("\n\nPlease enter a name for your Chocobo:\n");
             Name = Console.ReadLine();
 
@@ -182,7 +178,7 @@ namespace VirtualPet
             {
                 Speed += randomNumber.Next(1, 4);
                 Stamina += randomNumber.Next(1, 4);
-                Hunger -= randomNumber.Next(10, 16);
+                Hunger -= randomNumber.Next(25, 41);
                 Anger -= randomNumber.Next(1, 4);
                 Tiredness += randomNumber.Next(8, 12);
                 Boredom += randomNumber.Next(5, 11);
@@ -191,7 +187,7 @@ namespace VirtualPet
             {
                 Speed += randomNumber.Next(1, 7);
                 Stamina += randomNumber.Next(1, 7);
-                Hunger -= randomNumber.Next(14, 20);
+                Hunger -= randomNumber.Next(20, 36);
                 Anger -= randomNumber.Next(3, 7);
                 Tiredness += randomNumber.Next(12, 16);
                 Boredom += randomNumber.Next(7, 13);
@@ -200,7 +196,7 @@ namespace VirtualPet
             {
                 Speed += randomNumber.Next(1, 4);
                 Stamina += randomNumber.Next(1, 4);
-                Hunger -= randomNumber.Next(9, 12);
+                Hunger -= randomNumber.Next(16, 31);
                 Anger -= randomNumber.Next(1, 3);
                 Tiredness += randomNumber.Next(20, 29);
                 Boredom += randomNumber.Next(10, 16);
@@ -209,7 +205,7 @@ namespace VirtualPet
             {
                 Speed += randomNumber.Next(1, 4);
                 Stamina += randomNumber.Next(1, 4);
-                Hunger -= randomNumber.Next(7, 11);
+                Hunger -= randomNumber.Next(12, 26);
                 Anger -= randomNumber.Next(1, 3);
                 Tiredness += randomNumber.Next(23, 33);
                 Boredom += randomNumber.Next(12, 20);
@@ -230,7 +226,7 @@ namespace VirtualPet
                 Console.WriteLine("You play a game of hopscotch with {0}!\n", Name);
             }
             else if (Speed > 50 && Speed <= 75)
-            { 
+            {
                 Console.WriteLine("You play a spirited game of fetch with {0}!\n", Name);
             }
             else //speed > 75
@@ -249,7 +245,7 @@ namespace VirtualPet
                 Hunger += randomNumber.Next(4, 8);
                 Anger -= randomNumber.Next(1, 5);
                 Tiredness += randomNumber.Next(10, 14);
-                Boredom -= randomNumber.Next(5, 11);
+                Boredom -= randomNumber.Next(25, 41);
             }
             else if (color == "BLUE")
             {
@@ -258,7 +254,7 @@ namespace VirtualPet
                 Hunger += randomNumber.Next(14, 20);
                 Anger -= randomNumber.Next(3, 7);
                 Tiredness += randomNumber.Next(12, 16);
-                Boredom -= randomNumber.Next(7, 13);
+                Boredom -= randomNumber.Next(20, 36);
             }
             else if (color == "BLACK")
             {
@@ -267,7 +263,7 @@ namespace VirtualPet
                 Hunger += randomNumber.Next(15, 21);
                 Anger -= randomNumber.Next(1, 3);
                 Tiredness += randomNumber.Next(13, 17);
-                Boredom -= randomNumber.Next(4, 10);
+                Boredom -= randomNumber.Next(16, 31);
             }
             else //color Gold
             {
@@ -276,7 +272,7 @@ namespace VirtualPet
                 Hunger += randomNumber.Next(17, 26);
                 Anger -= randomNumber.Next(1, 3);
                 Tiredness += randomNumber.Next(15, 20);
-                Boredom -= randomNumber.Next(2, 8);
+                Boredom -= randomNumber.Next(12, 26);
             }
 
             Console.ReadKey();
@@ -292,39 +288,39 @@ namespace VirtualPet
 
             if (color == "YELLOW")
             {
-                Speed += randomNumber.Next(3, 6);
-                Stamina += randomNumber.Next(3, 6);
+                Speed += randomNumber.Next(4, 8);
+                Stamina += randomNumber.Next(7, 16);
                 Hunger += randomNumber.Next(20, 26);
                 Anger -= randomNumber.Next(5, 13);
                 Tiredness += randomNumber.Next(20, 26);
-                Boredom -= randomNumber.Next(10, 19);
+                Boredom -= randomNumber.Next(40, 56);
             }
             else if (color == "BLUE" || color == "GREEN")
             {
                 Speed += randomNumber.Next(3, 6);
-                Stamina += randomNumber.Next(3, 6);
+                Stamina += randomNumber.Next(5, 13);
                 Hunger += randomNumber.Next(23, 31);
                 Anger -= randomNumber.Next(5, 12);
                 Tiredness += randomNumber.Next(23, 31);
-                Boredom -= randomNumber.Next(10, 19);
+                Boredom -= randomNumber.Next(35, 51);
             }
             else if (color == "BLACK")
             {
                 Speed += randomNumber.Next(2, 6);
-                Stamina += randomNumber.Next(2, 6);
+                Stamina += randomNumber.Next(3, 9);
                 Hunger += randomNumber.Next(27, 36);
                 Anger -= randomNumber.Next(4, 12);
                 Tiredness += randomNumber.Next(27, 36);
-                Boredom -= randomNumber.Next(8, 19);
+                Boredom -= randomNumber.Next(30, 46);
             }
             else //color Gold
             {
                 Speed += randomNumber.Next(2, 5);
-                Stamina += randomNumber.Next(2, 5);
-                Hunger += randomNumber.Next(17, 31);
+                Stamina += randomNumber.Next(3, 7);
+                Hunger += randomNumber.Next(31, 41);
                 Anger -= randomNumber.Next(3, 11);
                 Tiredness += randomNumber.Next(22, 35);
-                Boredom -= randomNumber.Next(7, 16);
+                Boredom -= randomNumber.Next(25, 41);
             }
 
             Console.ReadKey();
@@ -415,13 +411,13 @@ namespace VirtualPet
         }
 
         //Race Method ---Complicated; results based on Speed and Stamina stats (this is the only way to win the game)
-        public void Race() 
+        public void Race()
         {
             Console.Clear();
 
-            if (Speed >= 50 && Speed <=99)
+            if (Speed >= 60)
             {
-                if (Stamina >= 50)
+                if (Stamina >= 60)
                 {
                     Console.WriteLine("{0} puts up an incredible fight but comes in second by a nose.\n\n", Name);
                     Console.WriteLine("{0} has gained speed and stamina.\n", Name);
@@ -465,7 +461,7 @@ namespace VirtualPet
                         Boredom -= randomNumber.Next(4, 12);
                     }
                 }
-                else if (Stamina >= 30 && Stamina < 50)
+                else if (Stamina < 60)
                 {
                     Console.WriteLine("{0} comes in a somewhat respectable third place.\n\n", Name);
                     Console.WriteLine("{0} has gained a little speed and stamina.\n", Name);
@@ -477,25 +473,25 @@ namespace VirtualPet
                         Speed += randomNumber.Next(3, 7);
                         Stamina += randomNumber.Next(3, 7);
                         Hunger += randomNumber.Next(20, 31);
-                        Anger += randomNumber.Next(3, 7);
+                        Anger += randomNumber.Next(2, 6);
                         Tiredness += randomNumber.Next(20, 31);
-                        Boredom -= randomNumber.Next(3, 7);
+                        Boredom -= randomNumber.Next(12, 21);
                     }
                     else if (color == "BLUE" || color == "GREEN")
                     {
                         Speed += randomNumber.Next(2, 6);
                         Stamina += randomNumber.Next(2, 6);
                         Hunger += randomNumber.Next(22, 34);
-                        Anger += randomNumber.Next(2, 6);
+                        Anger += randomNumber.Next(5, 16);
                         Tiredness += randomNumber.Next(22, 34);
-                        Boredom -= randomNumber.Next(2, 6);
+                        Boredom -= randomNumber.Next(10, 16);
                     }
                     else if (color == "BLACK")
                     {
                         Speed += randomNumber.Next(5, 10);
                         Stamina += randomNumber.Next(5, 10);
                         Hunger += randomNumber.Next(24, 36);
-                        Anger += randomNumber.Next(5, 13);
+                        Anger += randomNumber.Next(7, 21);
                         Tiredness += randomNumber.Next(24, 36);
                         Boredom -= randomNumber.Next(5, 13);
                     }
@@ -504,20 +500,106 @@ namespace VirtualPet
                         Speed += randomNumber.Next(4, 8);
                         Stamina += randomNumber.Next(4, 8);
                         Hunger += randomNumber.Next(25, 41);
-                        Anger += randomNumber.Next(4, 12);
+                        Anger += randomNumber.Next(10, 26);
                         Tiredness += randomNumber.Next(25, 41);
                         Boredom -= randomNumber.Next(4, 12);
                     }
-
-
                 }
-                else if (Stamina > 0 && Stamina < 30)
+            }
+            else if (Speed < 60)
+            {
+                if (Stamina >= 60)
                 {
+                    Console.WriteLine("{0} comes in a somewhat respectable third place.\n\n", Name);
+                    Console.WriteLine("{0} has gained a little speed and stamina.\n", Name);
+                    Console.WriteLine("{0} has become a little less bored.\n", Name);
+                    Console.WriteLine("{0} has become more hungry, tired, and angry.\n", Name);
 
+                    if (color == "YELLOW")
+                    {
+                        Speed += randomNumber.Next(3, 7);
+                        Stamina += randomNumber.Next(3, 7);
+                        Hunger += randomNumber.Next(20, 31);
+                        Anger += randomNumber.Next(2, 6);
+                        Tiredness += randomNumber.Next(20, 31);
+                        Boredom -= randomNumber.Next(12, 21);
+                    }
+                    else if (color == "BLUE" || color == "GREEN")
+                    {
+                        Speed += randomNumber.Next(2, 6);
+                        Stamina += randomNumber.Next(2, 6);
+                        Hunger += randomNumber.Next(22, 34);
+                        Anger += randomNumber.Next(5, 16);
+                        Tiredness += randomNumber.Next(22, 34);
+                        Boredom -= randomNumber.Next(10, 16);
+                    }
+                    else if (color == "BLACK")
+                    {
+                        Speed += randomNumber.Next(5, 10);
+                        Stamina += randomNumber.Next(5, 10);
+                        Hunger += randomNumber.Next(24, 36);
+                        Anger += randomNumber.Next(7, 21);
+                        Tiredness += randomNumber.Next(24, 36);
+                        Boredom -= randomNumber.Next(5, 13);
+                    }
+                    else //color Gold
+                    {
+                        Speed += randomNumber.Next(4, 8);
+                        Stamina += randomNumber.Next(4, 8);
+                        Hunger += randomNumber.Next(25, 41);
+                        Anger += randomNumber.Next(10, 26);
+                        Tiredness += randomNumber.Next(25, 41);
+                        Boredom -= randomNumber.Next(4, 12);
+                    }
+                }
+                else if (Stamina < 60)
+                {
+                    Console.WriteLine("{0} comes in fifth place (out of five)...\n\n", Name);
+                    Console.WriteLine("{0} has lost a little speed and stamina.\n", Name);
+                    Console.WriteLine("{0} has become a little more bored.\n", Name);
+                    Console.WriteLine("{0} has become more hungry, tired, and angry.\n", Name);
+
+                    if (color == "YELLOW")
+                    {
+                        Speed -= randomNumber.Next(2, 5);
+                        Stamina -= randomNumber.Next(2, 5);
+                        Hunger += randomNumber.Next(20, 31);
+                        Anger += randomNumber.Next(3, 7);
+                        Tiredness += randomNumber.Next(20, 31);
+                        Boredom += randomNumber.Next(3, 7);
+                    }
+                    else if (color == "BLUE" || color == "GREEN")
+                    {
+                        Speed -= randomNumber.Next(3, 7);
+                        Stamina -= randomNumber.Next(3, 7);
+                        Hunger += randomNumber.Next(22, 33);
+                        Anger += randomNumber.Next(4, 10);
+                        Tiredness += randomNumber.Next(22, 32);
+                        Boredom += randomNumber.Next(4, 13);
+                    }
+                    else if (color == "BLACK")
+                    {
+                        Speed -= randomNumber.Next(5, 10);
+                        Stamina -= randomNumber.Next(5, 10);
+                        Hunger += randomNumber.Next(24, 36);
+                        Anger += randomNumber.Next(5, 13);
+                        Tiredness += randomNumber.Next(24, 36);
+                        Boredom += randomNumber.Next(7, 21);
+                    }
+                    else //color Gold
+                    {
+                        Speed -= randomNumber.Next(6, 13);
+                        Stamina -= randomNumber.Next(6, 13);
+                        Hunger += randomNumber.Next(25, 41);
+                        Anger += randomNumber.Next(8, 21);
+                        Tiredness += randomNumber.Next(25, 41);
+                        Boredom += randomNumber.Next(11, 26);
+                    }
                 }
             }
 
-            Console.ReadKey();
+        Console.ReadKey();
+            
         }
     }
 }

@@ -14,6 +14,11 @@ namespace VirtualPet
             {
                 Random randomNumber = new Random();
 
+                Console.WriteLine("Thank you for using ChocoboPet2000.\n");
+                Console.WriteLine("Max out your Chocobo's Speed and Stamina, then dominate the race!\n");
+                Console.WriteLine("Be careful not to make your Chocobo too hungry, bored, tired, or angry,");
+                Console.WriteLine("or terrible things will happen...");
+
                 Chocobo choco = new Chocobo();
 
                 while (choco.Hunger < 100 && choco.Anger < 100 && choco.Boredom < 100 && choco.Tiredness < 100 && choco.Speed > 0 && choco.Stamina > 0)
@@ -37,7 +42,7 @@ namespace VirtualPet
                     }
                     else
                     {
-                        Console.WriteLine("{0} is rather fired up. \nYou better do something to calm {0} down.\n", choco.Name);
+                        Console.WriteLine("{0} is rather fired up. \nYou'd better do something to calm {0} down.\n", choco.Name);
                     }
 
                     Console.WriteLine("        __");
@@ -50,6 +55,12 @@ namespace VirtualPet
                     Console.WriteLine("4: Let {0} go to sleep\n5: Race {0} against other Chocobos", choco.Name);
                     Console.WriteLine("6: Just let some time pass\n");
                     string response = Console.ReadLine();
+
+                    if (response == "5" && choco.Speed >=100 && choco.Stamina >= 100)
+                    {
+                        Console.Clear();
+                        break;
+                    }
 
                     switch (response)
                     {
@@ -72,7 +83,7 @@ namespace VirtualPet
                             choco.Tick();
                             break;
                         default:
-                            Console.WriteLine("You shouldn't have done that. A lot of time has passed for your misbehavior...");
+                            Console.WriteLine("\nYou shouldn't have done that. A lot of time has passed for your misbehavior...");
                             
                             for(int i = 0; i < randomNumber.Next(1, 4); i++)
                             {
@@ -112,31 +123,53 @@ namespace VirtualPet
                     }
                 }
 
-                if (choco.Hunger >= 100)
+
+                if (choco.Speed >= 100 && choco.Stamina >= 100)
                 {
+                    Console.Clear();
+                    Console.WriteLine("You have entered {0} in the Chocobo Grand Prix and dominated the field!!!\n", choco.Name);
+                    Console.WriteLine("{0}'s name will go down in the annals of history!!!\n", choco.Name);
+                    Console.WriteLine("Unfortunately, {0} has become cocky and left you for a better trainer...\n\n\n\n", choco.Name);
+                }
+                else if (choco.Hunger >= 100)
+                {
+                    Console.Clear();
                     Console.WriteLine("\aYou have made {0} so hungry that they ate you while you were sleeping.\n", choco.Name);
                     Console.WriteLine("{0} will never win the race...\n\n\n\n", choco.Name);
                 }
                 else if (choco.Tiredness >= 100)
                 {
+                    Console.Clear();
                     Console.WriteLine("{0} has gotten so tired that they've fallen asleep for the", choco.Name);
                     Console.WriteLine("foreseeable future. \n\n{0} will never win the race...\n\n\n\n", choco.Name);
                 }
                 else if (choco.Boredom >= 100)
                 {
-                    Console.WriteLine("You have bored {0} to tears and now your chocobo just sits in the corner crying.\n", choco.Name);
+                    Console.Clear();
+                    Console.WriteLine("You have bored {0} to tears and now your chocobo just sits\nin the corner crying.\n", choco.Name);
                     Console.WriteLine("{0} will never win the race...\n\n\n\n", choco.Name);
                 }
                 else if (choco.Anger >= 100)
                 {
+                    Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("{0} has become so enfuriated that your chocobo has plotted your demise.\n", choco.Name);
                     Console.WriteLine("{0} will never win the race...\n\n\n\n", choco.Name);
                 }
-
-
-
-                Console.WriteLine("Would you like to restart? (yes or no)");
+                else if (choco.Speed <= 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("{0} has become so slow that your Chocobo will never walk again.\n", choco.Name);
+                    Console.WriteLine("{0} will never win the race...\n\n\n\n", choco.Name);
+                }
+                else if (choco.Stamina <= 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("{0} can't put one foot out in front of the other without falling over.\n", choco.Name);
+                    Console.WriteLine("{0} will never win the race...\n\n\n\n", choco.Name);
+                }
+                
+                Console.WriteLine("Would you like to restart? (yes or no)\n");
                 string yesOrNo = Console.ReadLine();
                 yesOrNo = yesOrNo.ToUpper();
 
@@ -148,7 +181,7 @@ namespace VirtualPet
                 }
                 else
                 {
-                    Console.WriteLine("I guess not...");
+                    Console.WriteLine("\n\nWell, have a nice day then...");
                     break;
                 }
             }
