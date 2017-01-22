@@ -73,78 +73,96 @@ namespace VirtualPet
         //Constructor
         public Chocobo()
         {
-            Console.WriteLine("Thank you for using ChocoPet2000.\n");
-            Console.WriteLine("Max out your ChocoPet's Speed and Stamina then dominate the race!\n");
-            Console.WriteLine("Be careful not to make your ChocoPet too hungry, bored, tired, or angry,");
+            Console.WriteLine("Thank you for using ChocoboPet2000.\n");
+            Console.WriteLine("Max out your Chocobo's Speed and Stamina then dominate the race!\n");
+            Console.WriteLine("Be careful not to make your Chocobo too hungry, bored, tired, or angry,");
             Console.WriteLine("or terrible things will happen...");
             Console.WriteLine("\n\nPlease enter a name for your Chocobo:\n");
             Name = Console.ReadLine();
 
-            bool trueFalse = true; //this is a shortcut I have enjoyed for killing or restarting loops
-            while (trueFalse == true)
+            while (true)
             {
                 //Get different starting stats depending on which color
                 //also activities adjust stat differently based on color
                 Console.WriteLine("\nPlease choose a color for {0} from the following:\n\n", Name);
-                Console.WriteLine("Yellow -->(well-rounded, easygoing)");
-                Console.WriteLine("\nGreen -->(forest-dweller, fast, loves food)");
-                Console.WriteLine("\nBlue -->(swimmer, fast, loves play)");
-                Console.WriteLine("\nBlack -->(faster, but high-maintenance)");
-                Console.WriteLine("\nGold -->(incredible, but moody and volatile)\n");
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Yellow   (well-rounded, easygoing)");
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\nGreen   (forest-dweller, fast, loves food)");
+
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("\nBlue   (swimmer, fast, loves play)");
+
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine("\nBlack   (faster, but high-maintenance)");
+
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("\nGold   (incredible, but moody and volatile)\n");
+
+                Console.ForegroundColor = ConsoleColor.Gray;
                 Color = Console.ReadLine();
                 color = color.ToUpper();
+
                 if (color == "YELLOW")
                 {
-                    Speed = 25;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Speed = 10;
                     Hunger = 0;
                     Boredom = 0;
                     Tiredness = 0;
-                    Stamina = 25;
+                    Stamina = 10;
                     Anger = 0;
                 }
                 else if (color == "GREEN")
                 {
-                    Speed = 35;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Speed = 15;
                     Hunger = 20;
                     Boredom = 15;
                     Tiredness = 20;
-                    Stamina = 30;
-                    Anger = 5;
+                    Stamina = 15;
+                    Anger = 10;
                 }
                 else if (color == "BLUE")
                 {
-                    Speed = 35;
-                    Hunger = 15;
-                    Boredom = 20;
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Speed = 15;
+                    Hunger = 20;
+                    Boredom = 15;
                     Tiredness = 20;
-                    Stamina = 30;
-                    Anger = 5;
+                    Stamina = 15;
+                    Anger = 10;
                 }
                 else if (color == "BLACK")
                 {
-                    Speed = 50;
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Speed = 22;
                     Hunger = 20;
-                    Boredom = 20;
-                    Tiredness = 20;
-                    Stamina = 35;
-                    Anger = 15;
+                    Boredom = 25;
+                    Tiredness = 25;
+                    Stamina = 22;
+                    Anger = 25;
                 }
                 else if (color == "GOLD")
                 {
-                    Speed = 65;
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Speed = 30;
                     Hunger = 35;
                     Boredom = 30;
-                    Tiredness = 20;
-                    Stamina = 50;
-                    Anger = 35;
+                    Tiredness = 30;
+                    Stamina = 30;
+                    Anger = 40;
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Gray;
                     Console.Write("\nThat is not a valid choice\n");
                     Console.ReadKey();
                     continue;
                 }
-                trueFalse = false;
+                break;
             }
         }
 
@@ -153,17 +171,17 @@ namespace VirtualPet
         public void Feed() //feed Method
         {
             Console.Clear();
-            Console.WriteLine("You feed {0} some fresh greens!", Name);
-            Console.WriteLine("{0} releases a loud, \"WARK!!!\"");
-            Console.WriteLine("{0} has become faster and gained stamina!", Name);
-            Console.WriteLine("{0} has become less hungry!", Name);
-            Console.WriteLine("{0} has become slightly less angry.", Name);
-            Console.WriteLine("{0} has become more tired and bored.", Name);
+            Console.WriteLine("You feed {0} some fresh greens!\n", Name);
+            Console.WriteLine("{0} releases a loud, \"WARK!!!\"\n", Name);
+            Console.WriteLine("{0} has become faster and gained stamina.\n", Name);
+            Console.WriteLine("{0} has become less hungry.\n", Name);
+            Console.WriteLine("{0} has become slightly less angry.\n", Name);
+            Console.WriteLine("{0} has become more tired and bored.\n", Name);
 
             if (color == "YELLOW" || color == "BLUE")
             {
                 Speed += randomNumber.Next(1, 4);
-                Stamina += randomNumber.Next(1, 5);
+                Stamina += randomNumber.Next(1, 4);
                 Hunger -= randomNumber.Next(10, 16);
                 Anger -= randomNumber.Next(1, 4);
                 Tiredness += randomNumber.Next(8, 12);
@@ -171,8 +189,8 @@ namespace VirtualPet
             }
             else if (color == "GREEN")
             {
-                Speed += randomNumber.Next(3, 7);
-                Stamina += randomNumber.Next(2, 6);
+                Speed += randomNumber.Next(1, 7);
+                Stamina += randomNumber.Next(1, 7);
                 Hunger -= randomNumber.Next(14, 20);
                 Anger -= randomNumber.Next(3, 7);
                 Tiredness += randomNumber.Next(12, 16);
@@ -184,7 +202,7 @@ namespace VirtualPet
                 Stamina += randomNumber.Next(1, 4);
                 Hunger -= randomNumber.Next(9, 12);
                 Anger -= randomNumber.Next(1, 3);
-                Tiredness += randomNumber.Next(10, 14);
+                Tiredness += randomNumber.Next(20, 29);
                 Boredom += randomNumber.Next(10, 16);
             }
             else //color Gold
@@ -193,9 +211,11 @@ namespace VirtualPet
                 Stamina += randomNumber.Next(1, 4);
                 Hunger -= randomNumber.Next(7, 11);
                 Anger -= randomNumber.Next(1, 3);
-                Tiredness += randomNumber.Next(12, 17);
+                Tiredness += randomNumber.Next(23, 33);
                 Boredom += randomNumber.Next(12, 20);
             }
+
+            Console.ReadKey();
         }
 
         public void Play() //play Method
@@ -203,24 +223,24 @@ namespace VirtualPet
             Console.Clear();
             if (Speed <= 25)
             {
-                Console.WriteLine("You shoot marbles with {0}!", Name);
+                Console.WriteLine("You shoot marbles with {0}!\n", Name);
             }
             else if (Speed > 25 && Speed <= 50)
             {
-                Console.WriteLine("You play a game of hopscotch with {0}!", Name);
+                Console.WriteLine("You play a game of hopscotch with {0}!\n", Name);
             }
             else if (Speed > 50 && Speed <= 75)
             { 
-                Console.WriteLine("You play a spirited game of fetch with {0}!", Name);
+                Console.WriteLine("You play a spirited game of fetch with {0}!\n", Name);
             }
             else //speed > 75
             {
-                Console.WriteLine("{0} wrecks you and your friends in a game of tag!", Name);
+                Console.WriteLine("{0} wrecks you and your friends in a game of tag!\n", Name);
             }
-            Console.WriteLine("{0} has become less bored and gained speed and stamina!", Name);
-            Console.WriteLine("{0} has become more hungry.", Name);
-            Console.WriteLine("{0} has become less angry.", Name);
-            Console.WriteLine("{0} has become more tired.", Name);
+            Console.WriteLine("{0} has become less bored and gained speed and stamina.\n", Name);
+            Console.WriteLine("{0} has become more hungry.\n", Name);
+            Console.WriteLine("{0} has become less angry.\n", Name);
+            Console.WriteLine("{0} has become more tired.\n", Name);
 
             if (color == "YELLOW" || color == "GREEN")
             {
@@ -258,42 +278,43 @@ namespace VirtualPet
                 Tiredness += randomNumber.Next(15, 20);
                 Boredom -= randomNumber.Next(2, 8);
             }
+
+            Console.ReadKey();
         }
 
         public void Dance() //dance Method
         {
             Console.Clear();
-            Console.WriteLine("You have a late night dance party with {0}!", Name);
-            Console.WriteLine("{0} has become much less bored and gained speed and stamina!", Name);
-            Console.WriteLine("{0} has become much more hungry.", Name);
-            Console.WriteLine("{0} has become much less angry.", Name);
-            Console.WriteLine("{0} has become much more tired.", Name);
+            Console.WriteLine("You have a late night dance party with {0}!!!\n", Name);
+            Console.WriteLine("{0} has become much less bored and gained speed and stamina.\n", Name);
+            Console.WriteLine("{0} has become much more hungry and tired.\n", Name);
+            Console.WriteLine("{0} has become much less angry.\n", Name);
 
             if (color == "YELLOW")
             {
                 Speed += randomNumber.Next(3, 6);
                 Stamina += randomNumber.Next(3, 6);
-                Hunger += randomNumber.Next(12, 21);
+                Hunger += randomNumber.Next(20, 26);
                 Anger -= randomNumber.Next(5, 13);
-                Tiredness += randomNumber.Next(16, 21);
+                Tiredness += randomNumber.Next(20, 26);
                 Boredom -= randomNumber.Next(10, 19);
             }
             else if (color == "BLUE" || color == "GREEN")
             {
                 Speed += randomNumber.Next(3, 6);
                 Stamina += randomNumber.Next(3, 6);
-                Hunger += randomNumber.Next(14, 25);
+                Hunger += randomNumber.Next(23, 31);
                 Anger -= randomNumber.Next(5, 12);
-                Tiredness += randomNumber.Next(18, 25);
+                Tiredness += randomNumber.Next(23, 31);
                 Boredom -= randomNumber.Next(10, 19);
             }
             else if (color == "BLACK")
             {
                 Speed += randomNumber.Next(2, 6);
                 Stamina += randomNumber.Next(2, 6);
-                Hunger += randomNumber.Next(16, 29);
+                Hunger += randomNumber.Next(27, 36);
                 Anger -= randomNumber.Next(4, 12);
-                Tiredness += randomNumber.Next(20, 31);
+                Tiredness += randomNumber.Next(27, 36);
                 Boredom -= randomNumber.Next(8, 19);
             }
             else //color Gold
@@ -305,72 +326,107 @@ namespace VirtualPet
                 Tiredness += randomNumber.Next(22, 35);
                 Boredom -= randomNumber.Next(7, 16);
             }
+
+            Console.ReadKey();
         }
 
         public void Sleep() //sleep Method
         {
             Console.Clear();
-            Console.WriteLine("You allow {0} to catch some Zzzz's.", Name);
-            Console.WriteLine("{0} has become much less tired and gained speed and stamina!", Name);
-            Console.WriteLine("{0} has become more hungry.", Name);
-            Console.WriteLine("{0} has become less angry.", Name);
-            Console.WriteLine("{0} has become much more bored.", Name);
+            Console.WriteLine("You allow {0} to get some sleep.\n", Name);
+            Console.WriteLine("{0} has become much less tired and gained speed and stamina.\n", Name);
+            Console.WriteLine("{0} has become much more hungry and bored.\n", Name);
+            Console.WriteLine("{0} has become less angry.\n", Name);
 
             if (color == "YELLOW")
             {
                 Speed += randomNumber.Next(1, 3);
                 Stamina += randomNumber.Next(1, 3);
-                Hunger += randomNumber.Next(12, 21);
+                Hunger += randomNumber.Next(25, 36);
                 Anger -= randomNumber.Next(5, 13);
                 Tiredness = 0;
-                Boredom += randomNumber.Next(10, 19);
+                Boredom += randomNumber.Next(25, 36);
             }
             else if (color == "BLUE" || color == "GREEN")
             {
                 Speed += randomNumber.Next(1, 3);
                 Stamina += randomNumber.Next(1, 3);
-                Hunger += randomNumber.Next(14, 25);
-                Anger -= randomNumber.Next(5, 12);
+                Hunger += randomNumber.Next(28, 39);
+                Anger -= randomNumber.Next(3, 10);
                 Tiredness = 0;
-                Boredom += randomNumber.Next(12, 21);
+                Boredom += randomNumber.Next(28, 39);
             }
             else if (color == "BLACK")
             {
                 Speed++;
                 Stamina++;
-                Hunger += randomNumber.Next(16, 29);
-                Anger -= randomNumber.Next(4, 12);
+                Hunger += randomNumber.Next(30, 41);
+                Anger -= randomNumber.Next(2, 6);
                 Tiredness = 0;
-                Boredom += randomNumber.Next(14, 25);
+                Boredom += randomNumber.Next(30, 41);
             }
             else //color Gold
             {
                 Speed++;
                 Stamina++;
-                Hunger += randomNumber.Next(17, 31);
-                Anger -= randomNumber.Next(3, 11);
+                Hunger += randomNumber.Next(34, 46);
+                Anger -= randomNumber.Next(1, 4);
                 Tiredness = 0;
-                Boredom += randomNumber.Next(18, 31);
+                Boredom += randomNumber.Next(34, 46);
             }
+
+            Console.ReadKey();
         }
 
         public void Tick() //Tick Method, if the user wants to pass time, or in case the user is misbehaving
         {
+            Console.WriteLine("...");
 
+            if (color == "YELLOW")
+            {
+                Hunger += randomNumber.Next(5, 16);
+                Anger += randomNumber.Next(5, 16);
+                Tiredness += randomNumber.Next(10, 21);
+                Boredom += randomNumber.Next(10, 21);
+            }
+            else if (color == "BLUE" || color == "GREEN")
+            {
+                Hunger += randomNumber.Next(8, 19);
+                Anger += randomNumber.Next(8, 19);
+                Tiredness += randomNumber.Next(14, 25);
+                Boredom += randomNumber.Next(14, 25);
+            }
+            else if (color == "BLACK")
+            {
+                Hunger += randomNumber.Next(15, 21);
+                Anger += randomNumber.Next(15, 21);
+                Tiredness += randomNumber.Next(20, 31);
+                Boredom += randomNumber.Next(20, 31);
+            }
+            else //color Gold
+            {
+                Hunger += randomNumber.Next(18, 29);
+                Anger += randomNumber.Next(18, 29);
+                Tiredness += randomNumber.Next(25, 36);
+                Boredom += randomNumber.Next(25, 36);
+            }
+
+            Console.ReadKey();
         }
 
         //Race Method ---Complicated; results based on Speed and Stamina stats (this is the only way to win the game)
         public void Race() 
         {
+            Console.Clear();
+
             if (Speed >= 50 && Speed <=99)
             {
-                if (Stamina >= 50 && Stamina <= 100)
+                if (Stamina >= 50)
                 {
-                    Console.Clear();
-                    Console.WriteLine("{0} wins the race by two lengths!!!\n", Name);
-                    Console.WriteLine("{0} has gained speed and stamina.", Name);
-                    Console.WriteLine("{0} has become much less angry and bored.", Name);
-                    Console.WriteLine("{0} has become much more hungry and tired.", Name);
+                    Console.WriteLine("{0} puts up an incredible fight but comes in second by a nose.\n\n", Name);
+                    Console.WriteLine("{0} has gained speed and stamina.\n", Name);
+                    Console.WriteLine("{0} has become much less angry and bored.\n", Name);
+                    Console.WriteLine("{0} has become much more hungry and tired.\n", Name);
 
                     if (color == "YELLOW")
                     {
@@ -411,18 +467,17 @@ namespace VirtualPet
                 }
                 else if (Stamina >= 30 && Stamina < 50)
                 {
-                    Console.Clear();
-                    Console.WriteLine("{0} is barely beaten, but comes in second...\n", Name);
-                    Console.WriteLine("{0} has gained a little speed and stamina.", Name);
-                    Console.WriteLine("{0} has become a little less angry and bored.", Name);
-                    Console.WriteLine("{0} has become more hungry and tired.", Name);
+                    Console.WriteLine("{0} comes in a somewhat respectable third place.\n\n", Name);
+                    Console.WriteLine("{0} has gained a little speed and stamina.\n", Name);
+                    Console.WriteLine("{0} has become a little less bored.\n", Name);
+                    Console.WriteLine("{0} has become more hungry, tired, and angry.\n", Name);
 
                     if (color == "YELLOW")
                     {
                         Speed += randomNumber.Next(3, 7);
                         Stamina += randomNumber.Next(3, 7);
                         Hunger += randomNumber.Next(20, 31);
-                        Anger -= randomNumber.Next(3, 7);
+                        Anger += randomNumber.Next(3, 7);
                         Tiredness += randomNumber.Next(20, 31);
                         Boredom -= randomNumber.Next(3, 7);
                     }
@@ -431,7 +486,7 @@ namespace VirtualPet
                         Speed += randomNumber.Next(2, 6);
                         Stamina += randomNumber.Next(2, 6);
                         Hunger += randomNumber.Next(22, 34);
-                        Anger -= randomNumber.Next(2, 6);
+                        Anger += randomNumber.Next(2, 6);
                         Tiredness += randomNumber.Next(22, 34);
                         Boredom -= randomNumber.Next(2, 6);
                     }
@@ -440,7 +495,7 @@ namespace VirtualPet
                         Speed += randomNumber.Next(5, 10);
                         Stamina += randomNumber.Next(5, 10);
                         Hunger += randomNumber.Next(24, 36);
-                        Anger -= randomNumber.Next(5, 13);
+                        Anger += randomNumber.Next(5, 13);
                         Tiredness += randomNumber.Next(24, 36);
                         Boredom -= randomNumber.Next(5, 13);
                     }
@@ -449,14 +504,20 @@ namespace VirtualPet
                         Speed += randomNumber.Next(4, 8);
                         Stamina += randomNumber.Next(4, 8);
                         Hunger += randomNumber.Next(25, 41);
-                        Anger -= randomNumber.Next(4, 12);
+                        Anger += randomNumber.Next(4, 12);
                         Tiredness += randomNumber.Next(25, 41);
                         Boredom -= randomNumber.Next(4, 12);
                     }
 
 
                 }
+                else if (Stamina > 0 && Stamina < 30)
+                {
+
+                }
             }
+
+            Console.ReadKey();
         }
     }
 }
