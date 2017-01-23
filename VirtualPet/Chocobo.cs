@@ -599,8 +599,8 @@ namespace VirtualPet
                 }
             }
 
-        Console.ReadKey();
-            
+            Console.ReadKey();
+
         }
     }
 }
