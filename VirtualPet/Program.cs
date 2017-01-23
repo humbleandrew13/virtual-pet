@@ -137,7 +137,7 @@ namespace VirtualPet
                 else if (choco.Hunger >= 100) //All the rest are a bummer
                 {
                     Console.Clear();
-                    Console.WriteLine("\aYou have made {0} so hungry that they ate you while you were sleeping.\n", choco.Name);
+                    Console.WriteLine("\aYou have made {0} so hungry that {0} ate you while\nyou were sleeping.\n", choco.Name);
                     Console.WriteLine("{0} will never win the race...\n\n\n\n", choco.Name);
                 }
                 else if (choco.Tiredness >= 100)
