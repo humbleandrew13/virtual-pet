@@ -80,6 +80,7 @@ namespace VirtualPet
             {
                 //Get different starting stats depending on which color
                 //also activities adjust stat differently based on color
+                //The text color also corresponds to the color of the Chocobo you choose
                 Console.WriteLine("\nPlease choose a color for {0} from the following:\n\n", Name);
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -488,8 +489,8 @@ namespace VirtualPet
                     }
                     else if (color == "BLACK")
                     {
-                        Speed += randomNumber.Next(5, 10);
-                        Stamina += randomNumber.Next(5, 10);
+                        Speed += randomNumber.Next(1, 5);
+                        Stamina += randomNumber.Next(1, 5);
                         Hunger += randomNumber.Next(24, 36);
                         Anger += randomNumber.Next(7, 21);
                         Tiredness += randomNumber.Next(24, 36);
@@ -497,8 +498,8 @@ namespace VirtualPet
                     }
                     else //color Gold
                     {
-                        Speed += randomNumber.Next(4, 8);
-                        Stamina += randomNumber.Next(4, 8);
+                        Speed += randomNumber.Next(1, 4);
+                        Stamina += randomNumber.Next(1, 4);
                         Hunger += randomNumber.Next(25, 41);
                         Anger += randomNumber.Next(10, 26);
                         Tiredness += randomNumber.Next(25, 41);
